@@ -1,0 +1,15 @@
+<div style="height: 100vh; width: 100vw" class="d-flex justify-content-center align-items-center">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Actions</h5>
+      <% if user_signed_in? %>
+        <h6 class="card-subtitle mb-2 text-muted">Logged in as <%= current_user.email %></h6>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      <% else %>
+        <h6 class="card-subtitle mb-2 text-muted">You are not logged in</h6>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

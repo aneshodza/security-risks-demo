@@ -1,0 +1,16 @@
+<%= form_with url: "/insecure-login", method: :post, class: "w-25 m-3" do |form| %>
+  <div class="mb-3">
+    <%= form.label :email, "Your Email", class: "form-label" %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+  <div>
+    <%= form.label :password, "Password", class: "form-label"  %>
+    <%= form.text_field :password, class: "form-control"  %>
+  </div>
+  <%= form.submit "Sign in", class: "btn btn-primary mt-2" %>
+<% end %>
+<% if flash[:error] %>
+  <div class="console.log alert-danger mt-3" role="alert">
+    <%= flash[:error] %>
+  </div>
+<% end %>

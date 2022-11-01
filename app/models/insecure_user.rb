@@ -1,0 +1,2 @@
+class InsecureUser < ApplicationRecord
+end

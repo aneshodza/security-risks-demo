@@ -1,0 +1,51 @@
+<h1>Items</h1>
+<%= form_with url: '/items', method: :get do |form|  %>
+  <%= form.text_field :query, id: 'search', value: params[:query] %>
+  <%= form.submit 'Search' %>
+<% end %>
+<h6 id="query-wrapper">SELECT "items".* FROM "items" WHERE (public = true AND name= '<span id="query"><%= params[:query] %></span>')</h6>
+<% if @items.length > 0 %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>price</th>
+    </tr>
+    </thead>
+    <% @items.each do |item| %>
+      <tr>
+        <td> <%= item.name %> </td>
+        <td> <%= item.price %> </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No items found.</p>
+<% end %>
+
+<script>
+    document.getElementById('search').addEventListener('input', (e) => {
+        document.getElementById('query').innerHTML = e.target.value
+    })
+</script>
+
+<style>
+    #query-wrapper {
+        width: fit-content;
+        margin-top: 10px;
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        border-left: 3px solid #f36d33;
+        color: #666;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: 1em 1.5em;
+        display: block;
+        word-wrap: break-word;
+    }
+</style>

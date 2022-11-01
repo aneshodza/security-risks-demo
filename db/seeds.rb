@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+Item.create(name: 'Mercedes', price: 144000, public: true)
+Item.create(name: 'BMW', price: 86000, public: true)
+Item.create(name: 'Audi', price: 72000, public: true)
+Item.create(name: 'VW', price: 51000, public: false)
+Item.create(name: 'Opel', price: 33000, public: false)
+Item.create(name: 'Fiat', price: 28000, public: true)
+Item.create(name: 'Renault', price: 23000, public: false)
+Item.create(name: 'Ford', price: 22000, public: true)
+Item.create(name: 'Toyota', price: 15000, public: true)
+Item.create(name: 'Honda', price: 30000, public: false)
+
+InsecureUser.create(email: 'insecure1@example.com', password: '123456')
+InsecureUser.create(email: 'insecure2@example.com', password: '123456')
+InsecureUser.create(email: 'insecure3@example.com', password: '123456')
+InsecureUser.create(email: 'insecure4@example.com', password: '123456')
+InsecureUser.create(email: 'insecure5@example.com', password: '123456')
+
+InsecureUser.create(email: 'crackable@example.com', password: 'aa')
